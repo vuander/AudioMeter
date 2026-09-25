@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AudioMeter — plugin VST3 de mesure audio</title>
+<meta name="description" content="Spectre, LUFS, true peak, stéréo, oscilloscope et spectrogramme dans un plugin VST3, avec une barre qui reste en haut de l'écran.">
+<meta property="og:title" content="AudioMeter — plugin VST3 de mesure audio">
+<meta property="og:description" content="Tes mesures, toujours au-dessus de ton DAW.">
+<meta property="og:image" content="img/plugin.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181b1f'/%3E%3Crect x='7' y='12' width='4' height='13' rx='1' fill='%236fae8c'/%3E%3Crect x='14' y='7' width='4' height='18' rx='1' fill='%238fb3c6'/%3E%3Crect x='21' y='15' width='4' height='10' rx='1' fill='%23c7a57e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script>
+  // ====================================================================
+  //  À MODIFIER : lien de paiement Polar, lien de téléchargement, prix
+  //  (voir GUIDE-VENTE.md)
+  // ====================================================================
+  window.SITE = {
+    buyUrl:      "https://buy.polar.sh/polar_cl_Jnwl8ogeKLqUqhGDJ7Ih7tZ9HU9iLna8vT0BH0pr46z", // lien "Checkout" de ton produit Polar
+    downloadUrl: "https://github.com/vuander/AudioMeter/releases/latest/download/AudioMeter-Setup.exe", // installateur (essai gratuit) : téléchargement direct
+    price:       "29 €",
+    contact:     "contact@example.com"
+  };
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">AUDIOMETER</a>
+    <nav class="links">
+      <a href="#features" data-i18n="nav.features">Fonctions</a>
+      <a href="#hotbar" data-i18n="nav.hotbar">Hotbar</a>
+      <a href="#themes" data-i18n="nav.themes">Thèmes</a>
+      <a href="#price" data-i18n="nav.price">Prix</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue">
+      <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn small primary js-buy" href="#price" data-i18n="nav.buy">Acheter</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Accroche -->
+  <section class="hero">
+    <div class="wrap">
+      <h1 data-i18n="hero.title">Tes mesures, toujours au-dessus de ton DAW.</h1>
+      <p class="lead" data-i18n="hero.lead">Spectre, LUFS, true peak, stéréo, oscilloscope et spectrogramme dans un seul plugin, plus une barre fine qui reste en haut de l'écran pendant que tu mixes.</p>
+      <div class="cta">
+        <a class="btn primary js-buy" href="#price"><span data-i18n="hero.buy">Acheter</span> — <span class="js-price">29 €</span></a>
+        <a class="btn js-download" href="#" data-i18n="hero.trial">Essai gratuit 14 jours</a>
+      </div>
+      <div class="facts" data-i18n="hero.facts">Windows 10 / 11 · VST3 64 bits · 2 ordinateurs par licence · fonctionne hors ligne</div>
+      <div class="shot"><img src="img/plugin.webp" width="1200" height="740" alt="Fenêtre du plugin AudioMeter : spectre, loudness, forme d'onde, oscilloscope, spectrogramme, goniomètre" loading="eager"></div>
+    </div>
+  </section>
+
+  <!-- Hotbar -->
+  <section id="hotbar">
+    <div class="wrap">
+      <h2 data-i18n="hotbar.title">Une barre qui ne disparaît jamais derrière tes fenêtres.</h2>
+      <p class="lead" data-i18n="hotbar.lead">Un clic sur HOTBAR et les mesures se collent en haut de l'écran, sur toute la largeur, comme la barre des tâches. Les fenêtres agrandies s'arrêtent juste en dessous, rien ne la recouvre quand tu changes de logiciel, et elle s'efface devant une vidéo en plein écran.</p>
+      <div class="hotbar-shot"><img src="img/hotbar.webp" width="1600" height="84" alt="Hotbar AudioMeter en haut de l'écran" loading="lazy"></div>
+      <p class="muted small" style="margin-top:14px" data-i18n="hotbar.note">Tu choisis ce qu'elle affiche : vumètres, spectre, spectrogramme, oscilloscope, goniomètre, corrélation, LUFS. Le survol du spectre donne la fréquence, le niveau et la note.</p>
+    </div>
+  </section>
+
+  <!-- Modules -->
+  <section id="features">
+    <div class="wrap">
+      <h2 data-i18n="features.title">Tout ce qu'il faut pour vérifier un mix.</h2>
+      <div class="grid">
+        <div class="card"><h3 data-i18n="f1.t">Analyseur de spectre</h3><p data-i18n="f1.d">FFT jusqu'à 16384 points, sources L / R / Mid / Side, pondération A, maintien des crêtes, échelle log, linéaire ou ERB, courbe ou barres.</p></div>
+        <div class="card"><h3 data-i18n="f2.t">Loudness & true peak</h3><p data-i18n="f2.d">LUFS momentary, short-term et integrated (ITU-R BS.1770), true peak suréchantillonné x4, PLR, cibles streaming, club, podcast, broadcast.</p></div>
+        <div class="card"><h3 data-i18n="f3.t">Forme d'onde</h3><p data-i18n="f3.d">Historique défilant coloré par bande de fréquences (graves, médiums, aigus), pistes L, R, Mid ou Side, écrêtage en rouge.</p></div>
+        <div class="card"><h3 data-i18n="f4.t">Oscilloscope stable</h3><p data-i18n="f4.d">Le déclenchement suit la hauteur de la note : la forme d'onde reste immobile, avec la fréquence et la note affichées.</p></div>
+        <div class="card"><h3 data-i18n="f5.t">Spectrogramme net</h3><p data-i18n="f5.d">Mode net par réassignation en fréquence, clavier de piano, zoom en fréquence, réticule avec note et temps.</p></div>
+        <div class="card"><h3 data-i18n="f6.t">Stéréo & corrélation</h3><p data-i18n="f6.d">Goniomètre Lissajous ou nuage de points par bande, corrélation sur 1 ou 3 bandes, largeur, balance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Réglages -->
+  <section>
+    <div class="wrap split">
+      <div>
+        <h2 data-i18n="settings.title">Tout se règle au clic droit.</h2>
+        <ul class="ticks">
+          <li data-i18n-html="settings.l1"><b>Chaque module</b> a son menu : taille de FFT, fenêtre, sources, échelles, couleurs…</li>
+          <li data-i18n-html="settings.l2"><b>Réglages mémorisés</b> et partagés entre toutes les instances du plugin.</li>
+          <li data-i18n-html="settings.l3"><b>30, 60 ou 120 images/s</b>, pause avec la touche P.</li>
+          <li data-i18n-html="settings.l4"><b>Transparent</b> : le son ressort exactement comme il est entré.</li>
+        </ul>
+      </div>
+      <div class="shot" style="margin-top:0"><img src="img/menu.webp" width="1200" height="740" alt="Menu de réglages de l'analyseur de spectre" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- Thèmes et langues -->
+  <section id="themes">
+    <div class="wrap">
+      <h2 data-i18n="themes.title">Sept thèmes sobres, six langues.</h2>
+      <p class="lead" data-i18n="themes.lead">Graphite, Carbone, Ardoise, Noyer, Bordeaux, Studio et Papier : des fonds neutres et une seule couleur d'accent, pour lire les mesures sans fatigue.</p>
+      <div class="shot" style="margin-top:10px"><img src="img/themes.webp" width="1304" height="1650" alt="Les sept thèmes d'AudioMeter" loading="lazy"></div>
+      <div class="langs"><span>English</span><span>Français</span><span>Español</span><span>Deutsch</span><span>Italiano</span><span>Русский</span></div>
+    </div>
+  </section>
+
+  <!-- Prix -->
+  <section id="price">
+    <div class="wrap" style="text-align:center">
+      <h2 data-i18n="price.title">Un prix, sans abonnement.</h2>
+      <div class="price-card">
+        <div class="price"><span class="js-price">29 €</span><small data-i18n="price.once">paiement unique</small></div>
+        <ul class="ticks">
+          <li data-i18n="price.l1">Plugin VST3 pour Windows 10 / 11 (64 bits)</li>
+          <li data-i18n="price.l2">Activation sur 2 ordinateurs, transférable</li>
+          <li data-i18n="price.l3">Fonctionne hors ligne après l'activation</li>
+          <li data-i18n="price.l4">Mises à jour de la version 1 incluses</li>
+          <li data-i18n="price.l5">Clé de licence envoyée par e-mail tout de suite</li>
+        </ul>
+        <a class="btn primary js-buy" href="#" data-i18n="price.buy">Acheter la licence</a>
+        <a class="trial js-download" href="#" data-i18n="price.trial">ou télécharger l'essai gratuit de 14 jours</a>
+      </div>
+      <p class="muted small" style="margin-top:18px" data-i18n="price.vat">Paiement sécurisé par Polar (carte, PayPal selon les pays). TVA incluse selon ton pays, facture envoyée par e-mail.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap" style="max-width:820px">
+      <h2 data-i18n="faq.title">Questions fréquentes</h2>
+      <details><summary data-i18n="q1">Comment fonctionne l'activation ?</summary><p data-i18n="a1">Après l'achat, tu reçois une clé de licence par e-mail. Ouvre AudioMeter dans ton DAW : la fenêtre de licence s'affiche (sinon clique sur le bouton ESSAI à côté du logo), colle la clé et clique sur ACTIVER. Une connexion internet est nécessaire une seule fois.</p></details>
+      <details><summary data-i18n="q2">Sur combien d'ordinateurs ?</summary><p data-i18n="a2">Deux ordinateurs en même temps. Pour changer de PC, clique sur le logo AUDIOMETER du plugin puis sur « Désactiver ce PC » : la place se libère et tu peux activer la clé ailleurs.</p></details>
+      <details><summary data-i18n="q3">Faut-il être connecté à internet ?</summary><p data-i18n="a3">Seulement pour l'activation. Ensuite le plugin vérifie la licence de temps en temps quand internet est disponible, et continue de fonctionner hors ligne pendant plusieurs semaines.</p></details>
+      <details><summary data-i18n="q4">Dans quels logiciels ?</summary><p data-i18n="a4">Tous les logiciels compatibles VST3 sur Windows : FL Studio, Ableton Live, Reaper, Cubase, Studio One, Bitwig… Place-le sur une piste ou sur le master.</p></details>
+      <details><summary data-i18n="q5">Et sur Mac ?</summary><p data-i18n="a5">Pas encore : la version actuelle est pour Windows. Essaie la version d'essai avant d'acheter pour vérifier qu'elle te convient.</p></details>
+      <details><summary data-i18n="q6">Est-ce que le plugin modifie le son ?</summary><p data-i18n="a6">Non. AudioMeter mesure le signal et le laisse passer tel quel.</p></details>
+      <details><summary data-i18n="q7">Remboursement ?</summary><p data-i18n="a7">Profite de l'essai gratuit de 14 jours pour tout tester avant d'acheter. En cas de problème technique, écris-nous à l'adresse ci-dessous.</p></details>
+      <details><summary data-i18n="q8">Windows affiche « Windows a protégé votre ordinateur »</summary><p data-i18n="a8">C'est normal pour un petit éditeur indépendant : l'installateur n'a pas encore de signature payante. Clique sur « Informations complémentaires » puis « Exécuter quand même ». L'installateur place simplement le plugin dans le dossier VST3 de Windows.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span class="js-year">2026</span> AudioMeter</span>
+    <nav>
+      <a href="mentions-legales.html" data-i18n="foot.legal">Mentions légales</a>
+      <a href="cgv.html" data-i18n="foot.terms">Conditions de vente</a>
+      <a href="confidentialite.html" data-i18n="foot.privacy">Confidentialité</a>
+      <a class="js-contact" href="#">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var S = window.SITE;
+  var EN = {
+    "nav.features": "Features", "nav.hotbar": "Hotbar", "nav.themes": "Themes", "nav.price": "Pricing", "nav.faq": "FAQ", "nav.buy": "Buy",
+    "hero.kicker": "VST3 plugin · Windows",
+    "hero.title": "Your meters, always on top of your DAW.",
+    "hero.lead": "Spectrum, LUFS, true peak, stereo, oscilloscope and spectrogram in one plugin, plus a thin bar that stays at the top of your screen while you mix.",
+    "hero.buy": "Buy", "hero.trial": "Free 14-day trial",
+    "hero.facts": "Windows 10 / 11 · 64-bit VST3 · 2 computers per licence · works offline",
+    "hotbar.kicker": "Hotbar",
+    "hotbar.title": "A bar that never hides behind your windows.",
+    "hotbar.lead": "Click HOTBAR and the meters dock to the top of your screen, full width, like the taskbar. Maximised windows stop just below it, nothing covers it when you switch apps, and it steps aside for full-screen video.",
+    "hotbar.note": "Choose what it shows: meters, spectrum, spectrogram, oscilloscope, goniometer, correlation, LUFS. Hover the spectrum to read frequency, level and note.",
+    "features.kicker": "Six metering tools", "features.title": "Everything you need to check a mix.",
+    "f1.t": "Spectrum analyzer", "f1.d": "FFT up to 16384 points, L / R / Mid / Side sources, A-weighting, peak hold, log, linear or ERB scale, line or bars.",
+    "f2.t": "Loudness & true peak", "f2.d": "Momentary, short-term and integrated LUFS (ITU-R BS.1770), 4x oversampled true peak, PLR, streaming, club, podcast and broadcast targets.",
+    "f3.t": "Waveform", "f3.d": "Scrolling history coloured by frequency band (lows, mids, highs), L, R, Mid or Side lanes, clipping in red.",
+    "f4.t": "Stable oscilloscope", "f4.d": "The trigger follows the pitch: the waveform stands still, with its frequency and note displayed.",
+    "f5.t": "Sharp spectrogram", "f5.d": "Sharp mode with frequency reassignment, piano keyboard, frequency zoom, crosshair with note and time.",
+    "f6.t": "Stereo & correlation", "f6.d": "Lissajous or per-band dot cloud goniometer, 1 or 3-band correlation, width, balance.",
+    "settings.kicker": "Settings", "settings.title": "Everything is a right-click away.",
+    "settings.l1": "<b>Every module</b> has its own menu: FFT size, window, sources, scales, colours…",
+    "settings.l2": "<b>Settings are remembered</b> and shared by every instance of the plugin.",
+    "settings.l3": "<b>30, 60 or 120 fps</b>, pause with the P key.",
+    "settings.l4": "<b>Transparent</b>: the sound comes out exactly as it went in.",
+    "themes.kicker": "Themes & languages", "themes.title": "Seven sober themes, six languages.",
+    "themes.lead": "Graphite, Carbon, Slate, Walnut, Oxblood, Studio and Paper: neutral backgrounds and a single accent colour, easy on the eyes during long sessions.",
+    "price.kicker": "Licence", "price.title": "One price, no subscription.", "price.once": "one-time payment",
+    "price.l1": "VST3 plugin for Windows 10 / 11 (64-bit)", "price.l2": "Activate on 2 computers, transferable",
+    "price.l3": "Works offline after activation", "price.l4": "All version 1 updates included",
+    "price.l5": "Licence key e-mailed instantly", "price.buy": "Buy the licence", "price.trial": "or download the free 14-day trial",
+    "price.vat": "Secure payment by Polar. VAT included depending on your country, invoice sent by e-mail.",
+    "faq.title": "Frequently asked questions",
+    "q1": "How does activation work?", "a1": "After your purchase you receive a licence key by e-mail. Open AudioMeter in your DAW: the licence window appears (otherwise click the TRIAL button next to the logo), paste the key and click ACTIVATE. An internet connection is needed only once.",
+    "q2": "On how many computers?", "a2": "Two computers at the same time. To switch computers, click the AUDIOMETER logo in the plugin, then \"Deactivate this computer\": the slot is freed and you can activate the key elsewhere.",
+    "q3": "Do I need to be online?", "a3": "Only to activate. Afterwards the plugin checks the licence now and then when internet is available, and keeps working offline for several weeks.",
+    "q4": "Which DAWs?", "a4": "Any VST3 host on Windows: FL Studio, Ableton Live, Reaper, Cubase, Studio One, Bitwig… Put it on a track or on the master.",
+    "q5": "What about Mac?", "a5": "Not yet: the current version is for Windows. Try the free trial before buying to make sure it suits you.",
+    "q6": "Does the plugin change the sound?", "a6": "No. AudioMeter measures the signal and lets it through untouched.",
+    "q7": "Refunds?", "a7": "Use the free 14-day trial to test everything before buying. If you have a technical problem, write to us at the address below.",
+    "q8": "Windows says \"Windows protected your PC\"", "a8": "This is normal for a small independent developer: the installer does not have a paid signature yet. Click \"More info\" then \"Run anyway\". The installer simply puts the plugin in the Windows VST3 folder.",
+    "foot.legal": "Legal notice", "foot.terms": "Terms of sale", "foot.privacy": "Privacy"
+  };
+
+  var FR = {};
+  document.querySelectorAll("[data-i18n]").forEach(function (el) { FR[el.dataset.i18n] = el.textContent; });
+  document.querySelectorAll("[data-i18n-html]").forEach(function (el) { FR[el.dataset.i18nHtml] = el.innerHTML; });
+
+  function setLang (lang) {
+    var dict = lang === "en" ? EN : FR;
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) { if (dict[el.dataset.i18n]) el.textContent = dict[el.dataset.i18n]; });
+    document.querySelectorAll("[data-i18n-html]").forEach(function (el) { if (dict[el.dataset.i18nHtml]) el.innerHTML = dict[el.dataset.i18nHtml]; });
+    document.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"); });
+    try { localStorage.setItem("am-lang", lang); } catch (e) {}
+  }
+
+  document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { setLang (b.dataset.lang); }); });
+
+  var saved = null;
+  try { saved = localStorage.getItem("am-lang"); } catch (e) {}
+  var fromUrl = new URLSearchParams(location.search).get("lang");
+  var browser = (navigator.language || "fr").slice(0, 2) === "fr" ? "fr" : "en";
+  setLang (fromUrl || saved || browser);
+
+  // Liens et prix depuis la configuration en haut de page
+  document.querySelectorAll(".js-price").forEach(function (el) { el.textContent = S.price; });
+  document.querySelectorAll(".js-buy").forEach(function (el) { if (el.getAttribute("href") !== "#price") el.href = S.buyUrl; });
+  document.querySelectorAll(".js-download").forEach(function (el) { el.href = S.downloadUrl; });
+  document.querySelectorAll(".js-contact").forEach(function (el) { el.href = "mailto:" + S.contact; });
+  document.querySelectorAll(".js-year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
+})();
+</script>
+</body>
+</html>
