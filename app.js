@@ -7,7 +7,7 @@
   // ---------------------------------------------------------------- langues
   var EN = {
     "nav.features": "Features", "nav.hotbar": "Hotbar", "nav.themes": "Themes", "nav.price": "Pricing", "nav.faq": "FAQ", "nav.buy": "Buy",
-    "hero.title": "Your meters, always <span class=\"grad\">on top of your DAW.</span>",
+    "hero.title": "Your meters, always on top of your DAW.",
     "hero.lead": "Spectrum, LUFS, true peak, stereo, oscilloscope and spectrogram in one plugin, plus a thin bar that stays at the top of your screen while you mix.",
     "hero.buy": "Buy", "hero.trial": "Free 14-day trial",
     "fact.1": "Windows 10 / 11", "fact.2": "64-bit VST3", "fact.3": "2 computers per licence", "fact.4": "Works offline",
@@ -20,16 +20,16 @@
     "features.title": "Everything you need to check a mix.",
     "features.lead": "Six precise, readable metering tools in a single window.",
     "f1.t": "Spectrum analyzer", "f1.d": "FFT up to 16384 points, L / R / Mid / Side sources, A-weighting, peak hold, log, linear or ERB scale, line or bars.",
-    "f2.t": "Loudness & true peak", "f2.d": "Momentary, short-term and integrated LUFS (ITU-R BS.1770), 4x oversampled true peak, PLR, streaming, club, podcast and broadcast targets.",
-    "f3.t": "Waveform", "f3.d": "Scrolling history coloured by frequency band (lows, mids, highs), L, R, Mid or Side lanes, clipping in red.",
+    "f2.t": "Loudness & true peak", "f2.d": "LUFS in huge digits, the gap to your target spelled out, short-term, integrated, 4x true peak and L/R meters. Streaming, club, podcast and broadcast targets.",
+    "f3.t": "Waveform", "f3.d": "Scrolling history of peaks and average level, L, R, Mid or Side lanes, clipping in red.",
     "f4.t": "Stable oscilloscope", "f4.d": "The trigger follows the pitch: the waveform stands still, with its frequency and note displayed.",
-    "f5.t": "Sharp spectrogram", "f5.d": "Sharp mode with frequency reassignment, piano keyboard, frequency zoom, crosshair with note and time.",
-    "f6.t": "Stereo & correlation", "f6.d": "Lissajous or per-band dot cloud goniometer, 1 or 3-band correlation, width, balance.",
+    "f5.t": "Spectrogram under the spectrum", "f5.d": "Same frequency axis as the curve: a note spotted on top reads straight below. Sharp mode with frequency reassignment, crosshair with note and time.",
+    "f6.t": "Stereo & correlation", "f6.d": "Goniometer, big correlation reading with a clear verdict (\"Mono compatible\"), width and balance. 1 or 3-band correlation.",
     "settings.title": "Everything is a right-click away.",
     "settings.d": "Every module has its own menu: FFT size, window, sources, scales, colours. Settings are remembered and shared by every instance, 30 to 120 fps, pause with the P key.",
     "stat.1": "metering tools", "stat.2": "FFT points maximum", "stat.3": "frames per second", "stat.4": "change to your sound",
-    "themes.title": "Seven sober themes, six languages.",
-    "themes.lead": "Neutral backgrounds and a single accent colour, easy on the eyes during long sessions.",
+    "themes.title": "Three themes, six languages.",
+    "themes.lead": "Black and white, with a single colour for what matters: the peak and your target. Nothing else distracts you from your meters.", "theme.blanc": "White", "theme.pilules": "Pills",
     "price.title": "One price, no subscription.", "price.lead": "Pay once, keep it forever.", "price.once": "one-time payment",
     "price.l1": "VST3 plugin for Windows 10 / 11 (64-bit)", "price.l2": "Activate on 2 computers, transferable",
     "price.l3": "Works offline after activation", "price.l4": "All version 1 updates included",
@@ -44,7 +44,7 @@
     "q6": "Does the plugin change the sound?", "a6": "No. AudioMeter measures the signal and lets it through untouched.",
     "q7": "Refunds?", "a7": "Use the free 14-day trial to test everything before buying. If you have a technical problem, write to us at the address below.",
     "q8": "Windows says \"Windows protected your PC\"", "a8": "This is normal for a small independent developer: the installer does not have a paid signature yet. Click \"More info\" then \"Run anyway\". The installer simply puts the plugin in the Windows VST3 folder.",
-    "final.title": "Stop guessing. <span class=\"grad\">Look.</span>",
+    "final.title": "Stop guessing. Look.",
     "final.lead": "Try AudioMeter free for 14 days, no credit card needed.",
     "final.trial": "Download the free trial", "final.buy": "Buy",
     "foot.legal": "Legal notice", "foot.terms": "Terms of sale", "foot.privacy": "Privacy"
@@ -227,21 +227,21 @@
             if (k === 0) ctx.moveTo(x, yy); else ctx.lineTo(x, yy);
           }
           if (i === 2) {
-            ctx.shadowColor = "rgba(143,179,198,0.6)"; ctx.shadowBlur = 18;
-            ctx.strokeStyle = "rgba(188,214,227," + c[0] + ")"; ctx.lineWidth = 2;
-          } else { ctx.shadowBlur = 0; ctx.strokeStyle = "rgba(143,179,198," + c[0] + ")"; ctx.lineWidth = 1.2; }
+            ctx.shadowColor = "rgba(255,255,255,0.35)"; ctx.shadowBlur = 18;
+            ctx.strokeStyle = "rgba(255,255,255," + c[0] + ")"; ctx.lineWidth = 2;
+          } else { ctx.shadowBlur = 0; ctx.strokeStyle = "rgba(255,255,255," + (c[0] * 0.6) + ")"; ctx.lineWidth = 1.2; }
           ctx.stroke();
           if (i === 2) {
             ctx.shadowBlur = 0;
             ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath();
             var grd = ctx.createLinearGradient(0, base - amp, 0, H);
-            grd.addColorStop(0, "rgba(143,179,198,0.10)"); grd.addColorStop(1, "rgba(143,179,198,0)");
+            grd.addColorStop(0, "rgba(255,255,255,0.06)"); grd.addColorStop(1, "rgba(255,255,255,0)");
             ctx.fillStyle = grd; ctx.fill();
           }
         });
         // fondu en bas et sur les côtés
         var fade = ctx.createLinearGradient(0, H * 0.82, 0, H);
-        fade.addColorStop(0, "rgba(10,12,15,0)"); fade.addColorStop(1, "rgba(10,12,15,1)");
+        fade.addColorStop(0, "rgba(0,0,0,0)"); fade.addColorStop(1, "rgba(0,0,0,1)");
         ctx.fillStyle = fade; ctx.fillRect(0, H * 0.82, W, H * 0.18);
       }
       if (!reduce) requestAnimationFrame(frame);

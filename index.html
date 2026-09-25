@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AudioMeter — plugin VST3 de mesure audio</title>
 <meta name="description" content="Spectre, LUFS, true peak, stéréo, oscilloscope et spectrogramme dans un plugin VST3, avec une barre qui reste en haut de l'écran.">
-<meta name="theme-color" content="#0a0c0f">
+<meta name="theme-color" content="#000000">
 <meta property="og:title" content="AudioMeter — plugin VST3 de mesure audio">
 <meta property="og:description" content="Tes mesures, toujours au-dessus de ton DAW.">
 <meta property="og:image" content="https://vuander.github.io/AudioMeter/img/plugin.webp">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181b1f'/%3E%3Crect x='7' y='12' width='4' height='13' rx='1' fill='%236fae8c'/%3E%3Crect x='14' y='7' width='4' height='18' rx='1' fill='%238fb3c6'/%3E%3Crect x='21' y='15' width='4' height='10' rx='1' fill='%23c7a57e'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fff'/%3E%3Cpath d='M34 22v56M34 52c0-12 8-18 17-18s17 6 17 18v26' stroke='%23000' stroke-width='15' stroke-linecap='round' fill='none'/%3E%3Crect x='58' y='19' width='16' height='6' rx='3' fill='%23ffd60a'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/Inter-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <script>
@@ -29,7 +29,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="#top">AUDIOMETER</a>
+    <a class="logo" href="#top"><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#fff"/><path d="M34 22v56M34 52c0-12 8-18 17-18s17 6 17 18v26" stroke="#000" stroke-width="15" stroke-linecap="round" fill="none"/><rect x="58" y="19" width="16" height="6" rx="3" fill="#ffd60a"/></svg><span>AudioMeter</span></a>
     <nav class="links">
       <a href="#features" data-i18n="nav.features">Fonctions</a>
       <a href="#hotbar" data-i18n="nav.hotbar">Hotbar</a>
@@ -52,7 +52,7 @@
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="hero-copy">
-        <h1 class="reveal" data-i18n-html="hero.title">Tes mesures, toujours <span class="grad">au-dessus de ton DAW.</span></h1>
+        <h1 class="reveal" data-i18n-html="hero.title">Tes mesures, toujours <span class="nw">au-dessus</span> de ton DAW.</h1>
         <p class="lead reveal" style="--d:.1s" data-i18n="hero.lead">Spectre, LUFS, true peak, stéréo, oscilloscope et spectrogramme dans un seul plugin, plus une barre fine qui reste en haut de l'écran pendant que tu mixes.</p>
         <div class="cta reveal" style="--d:.2s">
           <a class="btn primary" href="#price"><span data-i18n="hero.buy">Acheter</span> — <span class="js-price">7 €</span></a>
@@ -74,8 +74,8 @@
 
   <div class="marquee" aria-hidden="true">
     <div class="track">
-      <span>LUFS momentary · short-term · integrated</span><span>True peak x4</span><span>FFT 16 384 points</span><span>Mid / Side</span><span>Spectrogramme</span><span>Oscilloscope stable</span><span>Goniomètre</span><span>Corrélation</span><span>Hotbar</span><span>7 thèmes</span><span>6 langues</span>
-      <span>LUFS momentary · short-term · integrated</span><span>True peak x4</span><span>FFT 16 384 points</span><span>Mid / Side</span><span>Spectrogramme</span><span>Oscilloscope stable</span><span>Goniomètre</span><span>Corrélation</span><span>Hotbar</span><span>7 thèmes</span><span>6 langues</span>
+      <span>LUFS momentary · short-term · integrated</span><span>True peak x4</span><span>FFT 16 384 points</span><span>Mid / Side</span><span>Spectrogramme</span><span>Oscilloscope stable</span><span>Goniomètre</span><span>Corrélation</span><span>Hotbar</span><span>3 thèmes</span><span>6 langues</span>
+      <span>LUFS momentary · short-term · integrated</span><span>True peak x4</span><span>FFT 16 384 points</span><span>Mid / Side</span><span>Spectrogramme</span><span>Oscilloscope stable</span><span>Goniomètre</span><span>Corrélation</span><span>Hotbar</span><span>3 thèmes</span><span>6 langues</span>
     </div>
   </div>
 
@@ -112,11 +112,11 @@
       </div>
       <div class="bento">
         <article class="card wide reveal"><div class="media"><img src="img/f-spec.webp" alt="" loading="lazy"></div><div class="body"><h3 data-i18n="f1.t">Analyseur de spectre</h3><p data-i18n="f1.d">FFT jusqu'à 16384 points, sources L / R / Mid / Side, pondération A, maintien des crêtes, échelle log, linéaire ou ERB, courbe ou barres.</p></div></article>
-        <article class="card wide reveal" style="--d:.08s"><div class="media"><img src="img/f-loud.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="body"><h3 data-i18n="f2.t">Loudness & true peak</h3><p data-i18n="f2.d">LUFS momentary, short-term et integrated (ITU-R BS.1770), true peak suréchantillonné x4, PLR, cibles streaming, club, podcast, broadcast.</p></div></article>
-        <article class="card reveal"><div class="media"><img src="img/f-wave.webp" alt="" loading="lazy"></div><div class="body"><h3 data-i18n="f3.t">Forme d'onde</h3><p data-i18n="f3.d">Historique défilant coloré par bande de fréquences (graves, médiums, aigus), pistes L, R, Mid ou Side, écrêtage en rouge.</p></div></article>
+        <article class="card wide reveal" style="--d:.08s"><div class="media"><img src="img/f-loud.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="body"><h3 data-i18n="f2.t">Loudness & true peak</h3><p data-i18n="f2.d">Le LUFS en très grand, l'écart à ta cible écrit en toutes lettres, court terme, intégré, true peak x4 et vumètres L/R. Cibles streaming, club, podcast, broadcast.</p></div></article>
+        <article class="card reveal"><div class="media"><img src="img/f-wave.webp" alt="" loading="lazy"></div><div class="body"><h3 data-i18n="f3.t">Forme d'onde</h3><p data-i18n="f3.d">Historique défilant des crêtes et du niveau moyen, pistes L, R, Mid ou Side, écrêtage en rouge.</p></div></article>
         <article class="card reveal" style="--d:.08s"><div class="media"><img src="img/f-osc.webp" alt="" loading="lazy"></div><div class="body"><h3 data-i18n="f4.t">Oscilloscope stable</h3><p data-i18n="f4.d">Le déclenchement suit la hauteur de la note : la forme d'onde reste immobile, avec la fréquence et la note affichées.</p></div></article>
-        <article class="card reveal" style="--d:.16s"><div class="media"><img src="img/f-sgram.webp" alt="" loading="lazy"></div><div class="body"><h3 data-i18n="f5.t">Spectrogramme net</h3><p data-i18n="f5.d">Mode net par réassignation en fréquence, clavier de piano, zoom en fréquence, réticule avec note et temps.</p></div></article>
-        <article class="card wide reveal"><div class="media"><img src="img/f-stereo.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="body"><h3 data-i18n="f6.t">Stéréo & corrélation</h3><p data-i18n="f6.d">Goniomètre Lissajous ou nuage de points par bande, corrélation sur 1 ou 3 bandes, largeur, balance.</p></div></article>
+        <article class="card reveal" style="--d:.16s"><div class="media"><img src="img/f-sgram.webp" alt="" loading="lazy"></div><div class="body"><h3 data-i18n="f5.t">Spectrogramme sous le spectre</h3><p data-i18n="f5.d">Même axe de fréquences que la courbe : une note repérée en haut se lit juste en dessous. Mode net par réassignation, réticule avec note et temps.</p></div></article>
+        <article class="card wide reveal"><div class="media"><img src="img/f-stereo.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="body"><h3 data-i18n="f6.t">Stéréo & corrélation</h3><p data-i18n="f6.d">Goniomètre, corrélation en grand avec un verdict clair (« Compatible mono »), largeur et équilibre. Corrélation sur 1 ou 3 bandes.</p></div></article>
         <article class="card wide reveal" style="--d:.08s"><div class="media"><img src="img/f-menu.webp" alt="" loading="lazy" style="object-position:center top"></div><div class="body"><h3 data-i18n="settings.title">Tout se règle au clic droit.</h3><p data-i18n="settings.d">Chaque module a son menu : taille de FFT, fenêtre, sources, échelles, couleurs. Réglages mémorisés et partagés entre toutes les instances, 30 à 120 images/s, pause avec la touche P.</p></div></article>
       </div>
     </div>
@@ -137,25 +137,17 @@
   <!-- Thèmes et langues -->
   <section id="themes" style="padding-top:40px">
     <div class="wrap center">
-      <h2 class="reveal" data-i18n="themes.title">Sept thèmes sobres, six langues.</h2>
-      <p class="lead reveal" style="--d:.1s" data-i18n="themes.lead">Des fonds neutres et une seule couleur d'accent, pour lire les mesures sans fatigue pendant les longues sessions.</p>
+      <h2 class="reveal" data-i18n="themes.title">Trois thèmes, six langues.</h2>
+      <p class="lead reveal" style="--d:.1s" data-i18n="themes.lead">Noir et blanc, une seule couleur pour ce qui compte : la crête et ta cible. Rien d'autre ne te distrait de tes mesures.</p>
       <div class="tabs reveal" role="tablist" style="--d:.15s">
-        <button role="tab" data-theme="graphite" aria-selected="true"><i style="background:#8fb3c6"></i>Graphite</button>
-        <button role="tab" data-theme="carbon"><i style="background:#d5d7da"></i>Carbon</button>
-        <button role="tab" data-theme="slate"><i style="background:#7fa6c8"></i>Slate</button>
-        <button role="tab" data-theme="walnut"><i style="background:#c7a57e"></i>Walnut</button>
-        <button role="tab" data-theme="oxblood"><i style="background:#b0525f"></i>Oxblood</button>
-        <button role="tab" data-theme="studio"><i style="background:#f1f3f5"></i>Studio</button>
-        <button role="tab" data-theme="paper"><i style="background:#efe8dc"></i>Paper</button>
+        <button role="tab" data-theme="noir" aria-selected="true"><i style="background:#000"></i>Noir</button>
+        <button role="tab" data-theme="blanc"><i style="background:#fff"></i><span data-i18n="theme.blanc">Blanc</span></button>
+        <button role="tab" data-theme="pilules"><i style="background:#ffd60a"></i><span data-i18n="theme.pilules">Pilules</span></button>
       </div>
       <div class="theme-stack reveal" style="--d:.2s">
-        <img class="on" data-theme="graphite" src="img/theme-graphite.webp" alt="Thème Graphite" loading="lazy">
-        <img data-theme="carbon" src="img/theme-carbon.webp" alt="Thème Carbon" loading="lazy">
-        <img data-theme="slate" src="img/theme-slate.webp" alt="Thème Slate" loading="lazy">
-        <img data-theme="walnut" src="img/theme-walnut.webp" alt="Thème Walnut" loading="lazy">
-        <img data-theme="oxblood" src="img/theme-oxblood.webp" alt="Thème Oxblood" loading="lazy">
-        <img data-theme="studio" src="img/theme-studio.webp" alt="Thème Studio" loading="lazy">
-        <img data-theme="paper" src="img/theme-paper.webp" alt="Thème Paper" loading="lazy">
+        <img class="on" data-theme="noir" src="img/theme-noir.webp" alt="Thème Noir" loading="lazy">
+        <img data-theme="blanc" src="img/theme-blanc.webp" alt="Thème Blanc" loading="lazy">
+        <img data-theme="pilules" src="img/theme-pilules.webp" alt="Thème Pilules" loading="lazy">
       </div>
       <div class="langs reveal"><span>Français</span><span>English</span><span>Español</span><span>Deutsch</span><span>Italiano</span><span>Русский</span></div>
     </div>
@@ -204,7 +196,7 @@
   <!-- Appel final -->
   <section class="final">
     <div class="wrap">
-      <h2 class="reveal" data-i18n-html="final.title">Arrête de deviner. <span class="grad">Regarde.</span></h2>
+      <h2 class="reveal" data-i18n-html="final.title">Arrête de deviner. Regarde.</h2>
       <p class="lead reveal" style="--d:.1s" data-i18n="final.lead">Essaie AudioMeter gratuitement pendant 14 jours, sans carte bancaire.</p>
       <div class="cta reveal" style="--d:.2s">
         <a class="btn primary js-download" href="#"><span data-i18n="final.trial">Télécharger l'essai gratuit</span> <span class="arrow">→</span></a>
@@ -216,7 +208,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© <span class="js-year">2026</span> AudioMeter · H-Audio</span>
+    <span>© <span class="js-year">2026</span> AudioMeter, par H-Audio</span>
     <nav>
       <a href="mentions-legales.html" data-i18n="foot.legal">Mentions légales</a>
       <a href="cgv.html" data-i18n="foot.terms">Conditions de vente</a>
